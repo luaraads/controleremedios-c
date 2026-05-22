@@ -1,0 +1,2 @@
+1;dipirona;a;10.00;10
+2;benegripe;b;15.00;2

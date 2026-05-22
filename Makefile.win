@@ -1,0 +1,37 @@
+# Project: Projeto2
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o remedio.o venda.o cliente.o
+LINKOBJ  = main.o remedio.o venda.o cliente.o
+LIBS     = -L"C:/Users/matos/Desktop/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Users/matos/Desktop/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Users/matos/Desktop/Dev-Cpp/TDM-GCC-64/include" -I"C:/Users/matos/Desktop/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Users/matos/Desktop/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"C:/Users/matos/Desktop/Dev-Cpp/TDM-GCC-64/include" -I"C:/Users/matos/Desktop/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Users/matos/Desktop/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Users/matos/Desktop/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = Remedios.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+DEL      = C:\Users\matos\Desktop\Dev-Cpp\devcpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+remedio.o: remedio.c
+	$(CC) -c remedio.c -o remedio.o $(CFLAGS)
+
+venda.o: venda.c
+	$(CC) -c venda.c -o venda.o $(CFLAGS)
+
+cliente.o: cliente.c
+	$(CC) -c cliente.c -o cliente.o $(CFLAGS)
